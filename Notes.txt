@@ -1,0 +1,4 @@
+******Ideas******
+    edit mode pro editaci všech. 
+    button 1-9 or none a na klik zmìnit hodnotu jednoho pole.
+******

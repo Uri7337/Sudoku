@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #00dcde;
+    font-size: 1rem;
+}
+
+.game{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sudoku-table {
+    border-collapse: separate;
+    width: 100%;
+}
+
+td {
+    text-align: center;
+    padding: 22px;
+    border: 6px solid #e900ff;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+tr{
+    color: black;
+    font-weight: bold;   
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+    
+}
+tr:nth-child(odd){
+    background-color: #f2f2f2;
+}
+tr td:nth-child(3n+0){
+   border: 9px solid #e9f0ff;
+}
+tr td:nth-child(3n+0){
+   border: 9px solid #e9f0ff;
+}
