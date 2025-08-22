@@ -1,0 +1,28 @@
+:root {
+  --grid-size: 364px;
+}
+body{
+    background-color: cadetblue;
+}
+
+.header{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#sudoku-container{
+    background-color: chartreuse;
+    width: var(--grid-size);
+    height: var(--grid-size);
+}
