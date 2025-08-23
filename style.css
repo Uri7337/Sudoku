@@ -1,29 +1,57 @@
 :root {
-  --grid-size: 364px;
+    --grid-size: 364px;
 }
 
-body{
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
     background-color: cadetblue;
 }
 
-.header{
+.header {
     display: flex;
-    width: 100vw;
+    flex-direction: column;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
 .canvas {
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 50vh;
     justify-content: center;
     align-items: center;
 }
 
 
-#sudoku-container{
+#sudoku-container {
     background-color: chartreuse;
     width: var(--grid-size);
     height: var(--grid-size);
 }
+
+/* Docs for game */
+
+.docs-content-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.docs-content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    word-break: break-word;
+}
+
+
+/* ************* */
