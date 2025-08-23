@@ -13,6 +13,18 @@ body {
     background-color: cadetblue;
 }
 
+hr {
+    height: 2px;
+    width: 80%;
+    border-width: 0;
+    color: gray;
+    background-color: gray;
+}
+
+.docs-hr {
+    width: 100%;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -29,7 +41,6 @@ body {
     align-items: center;
 }
 
-
 #sudoku-container {
     background-color: chartreuse;
     width: var(--grid-size);
@@ -38,7 +49,7 @@ body {
 
 /* Docs for game */
 
-.docs-content-container{
+.docs-content-container {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -46,7 +57,7 @@ body {
     gap: 40px;
 }
 
-.docs-content{
+.docs-content {
     display: flex;
     flex-direction: column;
     width: 80%;
