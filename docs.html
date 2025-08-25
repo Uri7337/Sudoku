@@ -1,47 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Page</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="header">
- <h1>Sudoku Docs</h1>
-  <p>This is a simple docs for sudoku game.</p>
-  <p><a href="index.html">Game</a></p>
-  <hr>
-</div>
- 
-<div class="docs-content-container">
-    <div class="docs-content">
-        <h1>The Game</h1>
-        <p>Hello, this is documentation page for Sudoku.
-            <br>
-            BOB.
-        </p>
-        <p>Hello there</p>
+    <div class="header">
+        <h1>Sudoku Docs</h1>
+        <p>This is a simple docs for sudoku game.</p>
+        <p><a href="index.html">Game</a></p>
+        <hr>
     </div>
 
-    <div class="docs-content">
-        <h1>Content</h1>
-        <p>HI</p>
+    <div class="docs-content-container">
+        <div class="docs-content">
+            <h1>The Game</h1>
+            <p>Hello, this is documentation page for Sudoku.</p>
+            <p>The game itself is build in pure HTML,CSS,JS</p>
+        </div>
+
+        <div class="docs-content">
+            <h1>Game Engine</h1>
+            <p>Goals for engine are:</p>
+            <li>Sudoku generator</li>
+            <li>Sudoku solver</li>
+            <li>User friendly page to solve sudoku puzzle</li>
+        </div>
+
+        <div class="docs-content">
+            <h1>Sudoku Canvas</h1>
+            <p>
+                First, we have to create canvas for sudoku.
+                <br>
+                That is done by:
+            </p>
+            <pre>
+<code>&lt;div class="canvas"&gt;
+...
+&lt;/div&gt;</code>
+            </pre>
+            <p>Then we have: </p>
+            <pre>
+<code>&lt;div id="sudoku-container"&gt;
+...
+&lt;/div&gt;</code>
+            </pre>
+            <p>Inside that we generate an 2D array using JS. </p>
+        </div>
+
+        <div class="docs-content">
+            <h1>Sudoku Generator</h1>
+            <p>Then, we can generate the numbers in canva.</p>
+        </div>
+
+        <div class="docs-content">
+            <h1>Materials</h1>
+            <p>Links:
+                <br>
+                <br>
+                1. Wiki: <a href="https://cs.wikipedia.org/wiki/Sudoku">Sudoku</a>
+                <br>
+                2. <a
+                    href="https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript">2D
+                    Array</a>
+                <br>
+                3. W3Schools:
+                <br>
+                3.1. https://www.w3schools.com/js/js_arrays.asp 
+                <br>
+                3.2. https://www.w3schools.com/js/js_loops.asp 
+            </p>
+
+            
+        </div>
     </div>
 
-    <div class="docs-content">
-        <h1>Materials</h1>
-        <p>Links:
-            <br>
-            <br>
-            1. Wiki: <a href="https://cs.wikipedia.org/wiki/Sudoku">Sudoku</a>
-        </p>
-        
-        <p></p>
-    </div>
-</div>
 
-  <script src="script.js"></script>
 </body>
+
 </html>
