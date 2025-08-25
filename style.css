@@ -13,6 +13,18 @@ body {
     background-color: cadetblue;
 }
 
+pre{
+    margin:0;
+}
+
+code {
+  font-family: Consolas,"courier new";
+  color:rgb(209 96 202);
+  background-color: #143e39;
+  padding: 2px;
+  font-size: 105%;
+}
+
 hr {
     height: 2px;
     width: 80%;
@@ -33,6 +45,8 @@ hr {
     align-items: center;
 }
 
+/*Sudoku game*/
+
 .canvas {
     display: flex;
     width: 100%;
@@ -46,6 +60,24 @@ hr {
     width: var(--grid-size);
     height: var(--grid-size);
 }
+
+#sudoku-container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#sudoku-container > div {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*************/
 
 /* Docs for game */
 
