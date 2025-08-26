@@ -50,12 +50,77 @@
 ...
 &lt;/div&gt;</code>
             </pre>
-            <p>Inside that we generate an 2D array using JS. </p>
+            <p>There are also styles for the canvas and sudoku container.
+                <br>
+                Styles for canvas are not much interesting, they are just sayng that canvas should be in the middle of
+                the screen.
+                <br>
+                For the <code>sudoku-container</code> on the other hand, we have sone interesting display grid:
+            </p>
+            <pre>
+<code>#sudoku-container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  padding: 10px;
+  border-radius: 5px;
+}
+</code>
+            </pre>
+            <p>And inside sudoku-container we have for every number div element with class field(more info in JS below).</p>
+            <pre>
+<code>#sudoku-container > div {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</code>
+            </pre>
+
+            <p>Inside <code>sudoku-container</code> we generate an 2D array using JS.</p>
+            <pre>
+<code>//Sudoku fields
+let fields = new Array(9);
+// variable to hold all the field blocks in a String
+let finalGrid = "";
+let sudokuGridContainer = document.getElementById("sudoku-container");
+
+function addToFinalGrid(value) {
+  finalGrid += "&lt;div class=\"field\"&gt;" + value + "&lt;/div&gt;";
+}
+
+//fill fields with ones
+for (let i = 0; i &lt; 9; i++) {
+    fields[i] = new Array(9);
+    fields[i].fill(1);
+    fields[i].forEach(addToFinalGrid);
+}
+
+sudokuGridContainer.innerHTML = finalGrid;</code>
+            </pre>
         </div>
 
         <div class="docs-content">
             <h1>Sudoku Generator</h1>
-            <p>Then, we can generate the numbers in canva.</p>
+            <p>Then, we can generate the numbers in canvas.</p>
+
+            <h2>Notes for Generator</h2>
+            <p>Somehow, when the numbers change i have to refresh the array?
+                <br>
+                - they do not have to change all i need is JS array where there is nothing and user can type in the
+                number to fill the empty spot in array
+            </p>
+            <p>
+                The empty spot is in JS undefined, so i just need to take care of displaying correctly undefined fields
+                until there is a user value
+                <br>
+                OR
+                <br>
+                I can have the array with right results and create another array with user input values, full of
+                undefined exept the array spots filled by user, then compare only the values that are input from user.
+            </p>
         </div>
 
         <div class="docs-content">
@@ -71,12 +136,12 @@
                 <br>
                 3. W3Schools:
                 <br>
-                3.1. https://www.w3schools.com/js/js_arrays.asp 
+                3.1. https://www.w3schools.com/js/js_arrays.asp
                 <br>
-                3.2. https://www.w3schools.com/js/js_loops.asp 
+                3.2. https://www.w3schools.com/js/js_loops.asp
             </p>
 
-            
+
         </div>
     </div>
 
