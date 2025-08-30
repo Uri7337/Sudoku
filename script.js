@@ -15,7 +15,7 @@ function addToGeneratedGrid(value) {
 //fill fields with ones
 for (let i = 0; i < 9; i++) {
     fields[i] = new Array(9);
-    fields[i].fill(1);
+    fields[i].fill(i);
     fields[i].forEach(addToGeneratedGrid);
 }
 
