@@ -13,16 +13,16 @@ body {
     background-color: cadetblue;
 }
 
-pre{
-    margin:0;
+pre {
+    margin: 0;
 }
 
 code {
-  font-family: Consolas,"courier new";
-  color:rgb(209 96 202);
-  background-color: #143e39;
-  padding: 2px;
-  font-size: 105%;
+    font-family: Consolas, "courier new";
+    color: rgb(209 96 202);
+    background-color: #143e39;
+    padding: 2px;
+    font-size: 105%;
 }
 
 hr {
@@ -62,13 +62,15 @@ hr {
 }
 
 #sudoku-container {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  padding: 10px;
-  border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    padding: 10px;
+    border-radius: 5px;
 }
 
-#sudoku-container > div {
+/*Sudoku game - fields*/
+
+#sudoku-container>div {
     background-color: #f1f1f1;
     border: 1px solid black;
     text-align: center;
@@ -76,6 +78,29 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
+/* every 3rd column */
+#sudoku-container>div:nth-child(3n) {
+    border-right: 3px solid black;
+}
+
+/* every 3rd row */
+#sudoku-container>div:nth-child(n+19):nth-child(-n+27),
+#sudoku-container>div:nth-child(n+46):nth-child(-n+54),
+#sudoku-container>div:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: 3px solid black;
+}
+
+/*top & left*/
+#sudoku-container>div:nth-child(-n+9) {
+    border-top: 3px solid black;
+}
+
+#sudoku-container>div:nth-child(9n+1) {
+    border-left: 3px solid black;
+}
+
+/**********************/
 
 /*************/
 
