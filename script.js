@@ -38,4 +38,3 @@ for (let field of fieldsContent) {
   });
 }
 
-let bob = document.getElementsByClassName("field");
