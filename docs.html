@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docs</title>
     <link rel="stylesheet" href="style.css">
+
+    <!--     Favicons    -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sudoku" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <!-- End of Favicons -->
+
 </head>
 
 <body>
@@ -27,9 +37,12 @@
         <div class="docs-content">
             <h1>Game Engine</h1>
             <p>Goals for engine are:</p>
-            <li>Sudoku generator</li>
-            <li>Sudoku solver</li>
-            <li>User friendly page to solve sudoku puzzle</li>
+            <ul>
+                <li>Sudoku generator</li>
+                <li>Sudoku solver</li>
+                <li>User friendly page to solve sudoku puzzle</li>
+            </ul>
+
         </div>
 
         <div class="docs-content">
@@ -55,7 +68,7 @@
                 Styles for canvas are not much interesting, they are just sayng that canvas should be in the middle of
                 the screen.
                 <br>
-                For the <code>sudoku-container</code> on the other hand, we have sone interesting display grid:
+                For the <code>sudoku-container</code> on the other hand, we have some interesting display grid:
             </p>
             <pre>
 <code>#sudoku-container {
@@ -66,7 +79,8 @@
 }
 </code>
             </pre>
-            <p>And inside sudoku-container we have for every number div element with class field(more info in JS below).</p>
+            <p>And inside sudoku-container we have for every div element with class field some styling:
+            </p>
             <pre>
 <code>#sudoku-container > div {
     background-color: #f1f1f1;
@@ -78,6 +92,35 @@
 }
 </code>
             </pre>
+            <p>And grid is interesting too:
+                <br>
+                I've decided to do it little bit untraditional.
+                <br>
+                Using the :nth-child() css selector i'll select every 3 colums and give them border-right 2px;
+                <br>
+                "TODO" Add picture.
+                <br>
+                I will use :nth-child() also on every 3 rows which will be harder to select 🤔... And also give them
+                border-right 2px;
+                <br>
+                There is Functional notation pattern An+B that ill use i guess for rows.
+                <br>
+                After some research and failed pattern combinations i used GPT and it's advice was to use <a
+                    href="#chaining-selectors">Chaining selectors</a> and <a href="#composition">Composition</a>.
+                The solution is not as clear as i want it to be and i belive there is multiple solutions to this
+                problem. so i'll try to find another(cleaner) solution, but for now we will use the recomendation. Let's
+                call it "temporary" solution.
+                <br>
+                "TODO" Add picture.
+                <br>
+                Then what's left is top and left border i guess? hard to visualise rn.
+                <br>
+                yes that was the remaining ones.
+                <br>
+                "TODO" Add picture.
+                <br>
+
+            </p>
 
             <p>Inside <code>sudoku-container</code> we generate an 2D array using JS.</p>
             <pre>
@@ -105,7 +148,15 @@ sudokuGridContainer.innerHTML = finalGrid;</code>
         <div class="docs-content">
             <h1>Sudoku Generator</h1>
             <p>Then, we can generate the numbers in canvas.</p>
-
+            <p>We are going to use the "Naive approach" - as they call it on geeksforgeeks</p>
+            <h2>Naive approach</h2>
+            <ol>
+                <li>Randomly take any number 1-9.</li>
+                <li>Check if it is safe to put in the cell. (row, column and box)</li>
+                <li>If safe, place it and increment to the next location and go to step 1.</li>
+                <li>If not safe, then without increment go to step 1.</li>
+                <li>Once the matrix is filled, remove k elements randomly to complete the game.</li>
+            </ol>
             <h2>Notes for Generator</h2>
             <p>Somehow, when the numbers change i have to refresh the array?
                 <br>
@@ -121,29 +172,104 @@ sudokuGridContainer.innerHTML = finalGrid;</code>
                 I can have the array with right results and create another array with user input values, full of
                 undefined exept the array spots filled by user, then compare only the values that are input from user.
             </p>
+            <h3></h3>
         </div>
 
         <div class="docs-content">
-            <h1>Materials</h1>
-            <p>Links:
-                <br>
-                <br>
-                1. Wiki: <a href="https://cs.wikipedia.org/wiki/Sudoku">Sudoku</a>
-                <br>
-                2. <a
-                    href="https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript">2D
-                    Array</a>
-                <br>
-                3. W3Schools:
-                <br>
-                3.1. https://www.w3schools.com/js/js_arrays.asp
-                <br>
-                3.2. https://www.w3schools.com/js/js_loops.asp
+            <h1>Sudoku Notes</h1>
+            <p>This is unordered notes for me, bcs i forget everything, maybe i'll order it later and make docs from it.
+            </p>
+            <p>
+                text.
             </p>
 
 
         </div>
-    </div>
+
+        <div class="docs-content">
+            <h1>My Sudoku ToDo/Next Steps</h1>
+            <p>
+                We have canvas filled with one number what will be the next steps?
+            </p>
+            <h2>1. Sudoku Generator</h2>
+            <p>
+                Next step is to generate <a href="#valid">valid</a> sudoku.
+                <br>
+            </p>
+            <h2 id="valid">Valid Sudoku</h2>
+            <ul>
+                <li>Each of the digits 1-9 must occur exactly once in each row.</li>
+                <li>Each of the digits 1-9 must occur exactly once in each column.</li>
+                <li>Each of the digits 1-9 must occur exactly once in each of the 9, 3x3 sub-boxes of the grid.</li>
+            </ul>
+
+
+        </div>
+
+        <div class="docs-content">
+            <h1>Materials</h1>
+            <p>Links:</p>
+            <p>
+                1. W3Schools:
+                <br>
+                1.1. https://www.w3schools.com/js/js_arrays.asp
+                <br>
+                1.2. https://www.w3schools.com/js/js_loops.asp
+                <br>
+                1.3. https://www.w3schools.com/html/html_lists_unordered.asp
+                <br>
+                1.4. https://www.w3schools.com/html/html_formatting.asp
+            </p>
+            <p>
+                2. geeksforgeeks:
+                <br>
+                2.1. https://www.geeksforgeeks.org/dsa/sudoku-backtracking-7/ - Solve Sudoku
+                <br>
+                2.2. https://www.geeksforgeeks.org/dsa/program-sudoku-generator/ - Generate Sudoku
+            </p>
+            <p>
+                3. MDN:
+                <br>
+                3.1. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events - all Element events
+                <br>
+                3.2. https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child - Nth-child
+            </p>
+            <p>
+                4. Others
+                <br>
+                4.1. Wiki: <a href="https://cs.wikipedia.org/wiki/Sudoku">Sudoku</a>
+                <br>
+                4.2. Stack Overflow: <a
+                    href="https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript">2D
+                    Array</a>
+                <br>
+                4.3. LeetCode: <a href="https://leetcode.com/problems/valid-sudoku/description/">36. Valid Sudoku</a>
+                <br>
+                4.4. Eliška Polínková's <a
+                    href="https://www.vut.cz/www_base/zav_prace_soubor_verejne.php?file_id=117180">work</a>
+                <br>
+                4.5. Favicon: <a href="https://www.flaticon.com/free-icons/sudoku" title="sudoku icons">Sudoku icons created by Freepik - Flaticon</a>
+                <br>
+                4.6. Favicon Generator: <a href="https://realfavicongenerator.net/" title="favicon generator">RealFaviconGenerator</a>
+            </p>
+            
+
+        </div>
+
+        <div class="docs-content">
+            <h1>Dictionary</h1>
+            <p id="chaining-selectors">
+                <b>Chaining selectors</b>(comma-separated): multiple selectors applied with the same style. Notice the
+                <code>,</code> in:
+                <br>
+                <code>div:nth-child(n+19):nth-child(-n+27),div:nth-child(n+46):nth-child(-n+54)</code>
+            </p>
+            <p id="composition">
+                <b>Composition</b>: you can combine multiple pseudo-classes together
+                <code>(:nth-child(...):nth-child(...))</code>
+            </p>
+
+        </div>
 
 
 </body>
