@@ -8,8 +8,11 @@ let sudokuGridContainer = document.getElementById("sudoku-container");
 const fieldVal1 = "&nbsp;"; // non-breaking space
 const fieldVal2 = "0"; 
 
-function addToGeneratedGrid(value) {
-  generatedGrid += "<div contenteditable=\"true\" class=\"field\">" + value + "</div>";
+function addToGeneratedGrid(value, index) {
+  let box = 0;
+  //udělat funkci, která podle value a indexu určí box
+  
+  generatedGrid += "<div contenteditable=\"true\" class=\"field\" data-row=\""+value+"\" data-column=\""+index+"\" data-box=\""+box+"\">" + value + "</div>";
 }
 
 //fill fields with values
@@ -35,6 +38,7 @@ for (let field of fieldsContent) {
 
   });
 
+  // adds input event listener for validation
   field.addEventListener("input", () => {
       // On change validate
       // if you find mistake, highlight row
@@ -91,7 +95,11 @@ const fieldValidator = {
 
         console.log(fieldsContent);
 
-        // validation will be false and highlight this filed slightly or no highlighting at all
+        //fieldsContent[1].dataset.row
+        //fieldsContent[1].dataset.column
+        //fieldsContent[1].dataset.box
+        // console.log(typeof fieldsContent[1].dataset.row); <- string
+        // validation will be false and highlight this filled slightly or no highlighting at all
         if(field.innerHTML == fieldVal1){
           return false;
         }
