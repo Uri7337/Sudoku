@@ -200,7 +200,57 @@ sudokuGridContainer.innerHTML = finalGrid;</code>
            
             <h2>Notes for Validation</h2>
             <p>
-                text.
+                column: 0,1,2 ; 3,4,5 ; 6,7,8
+                <br>
+                row: 000,111,222 ; 333,444,555 ; 666,777,888
+                <br>
+                    
+                <dl>
+                    <dt>So first box:</dt>
+                    <dt>Columns</dt>
+                    <dd>- 0,1,2</dd>
+                    <dt>Rows</dt>
+                    <dd>- 000,111,222</dd>
+                </dl>
+
+                i created this code:
+
+ <pre>
+<code>if(value<3){
+    if(index<3){
+      box = 0;
+    }else if(index<6){
+      box = 1;
+    }else{
+      box = 2;
+    }
+    
+  }else if(value<6){
+    if(index<3){
+      box = 3;
+    }else if(index<6){
+      box = 4;
+    }else{
+      box = 5;
+    }
+  }else{
+    if(index<3){
+      box = 6;
+    }else if(index<6){
+      box = 7;
+    }else{
+      box = 8;
+    }
+  }</code>
+            </pre>
+            then i asked GPT to simplify it bcs i know it can be done but its 22:03 and i wake up in 5:00 and still have to clean my teeth so i have 0 time to think about important stuff like this.
+            so he did, into one liner... with Marh.floor. I could have figure that out, possibly :D.
+
+                   <pre>
+<code>box = Math.floor(value / 3) * 3 + Math.floor(index / 3);
+</code>
+            </pre>
+
             </p>
 
 

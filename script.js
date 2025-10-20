@@ -11,8 +11,42 @@ const fieldVal2 = "0";
 function addToGeneratedGrid(value, index) {
   let box = 0;
   //udělat funkci, která podle value a indexu určí box
-  
-  generatedGrid += "<div contenteditable=\"true\" class=\"field\" data-row=\""+value+"\" data-column=\""+index+"\" data-box=\""+box+"\">" + value + "</div>";
+  //box 0:
+  //Columns 0,1,2 - index
+  //Rows 000,111,222 - value
+
+  //GPT one liner of my code below:
+  box = Math.floor(value / 3) * 3 + Math.floor(index / 3);
+  /*
+    if(value<3){
+      if(index<3){
+        box = 0;
+      }else if(index<6){
+        box = 1;
+      }else{
+        box = 2;
+      }
+      
+    }else if(value<6){
+      if(index<3){
+        box = 3;
+      }else if(index<6){
+        box = 4;
+      }else{
+        box = 5;
+      }
+    }else{
+      if(index<3){
+        box = 6;
+      }else if(index<6){
+        box = 7;
+      }else{
+        box = 8;
+      }
+    }
+  */
+ 
+  generatedGrid += "<div contenteditable=\"true\" class=\"field\" data-row=\""+value+"\" data-column=\""+index+"\" data-box=\""+box+"\">" + box + "</div>";
 }
 
 //fill fields with values
