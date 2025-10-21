@@ -6,46 +6,17 @@ let generatedGrid = "";
 let sudokuGridContainer = document.getElementById("sudoku-container");
 // field valid values:
 const fieldVal1 = "&nbsp;"; // non-breaking space
-const fieldVal2 = "0"; 
+const fieldVal2 = "0";
+const globalDebug = true; 
 
 function addToGeneratedGrid(value, index) {
   let box = 0;
-  //udělat funkci, která podle value a indexu určí box
   //box 0:
   //Columns 0,1,2 - index
   //Rows 000,111,222 - value
 
-  //GPT one liner of my code below:
+  //GPT one liner of my previous code:
   box = Math.floor(value / 3) * 3 + Math.floor(index / 3);
-  /*
-    if(value<3){
-      if(index<3){
-        box = 0;
-      }else if(index<6){
-        box = 1;
-      }else{
-        box = 2;
-      }
-      
-    }else if(value<6){
-      if(index<3){
-        box = 3;
-      }else if(index<6){
-        box = 4;
-      }else{
-        box = 5;
-      }
-    }else{
-      if(index<3){
-        box = 6;
-      }else if(index<6){
-        box = 7;
-      }else{
-        box = 8;
-      }
-    }
-  */
- 
   generatedGrid += "<div contenteditable=\"true\" class=\"field\" data-row=\""+value+"\" data-column=\""+index+"\" data-box=\""+box+"\">" + box + "</div>";
 }
 
@@ -54,7 +25,7 @@ for (let i = 0; i < 9; i++) {
     fields[i] = new Array(9);
     fields[i].fill(i);
     fields[i].forEach(addToGeneratedGrid);
-}
+};
 
 sudokuGridContainer.innerHTML = generatedGrid;
 
@@ -95,7 +66,7 @@ for (let field of fieldsContent) {
         }
       */
    });
-}
+};
 
 // fieldsContent = HTMLCollection 
 
@@ -108,42 +79,58 @@ for (let field of fieldsContent) {
 
 // Object fieldValidator
 const fieldValidator = {
-      // Validator Properties
-      row: [],
-      column: [],
-      box: [],
+  // Validator Properties
+  //row: [],
+  //column: [],
+  //box: [],
 
-      //Validator Methods
-      /*
-      highlight : function() {
-      return this.firstName + " " + this.lastName;
-      },
-      */
+  //Validator Methods
+  /*
+  highlight : function() {
+  return this.firstName + " " + this.lastName;
+  },
+  */
 
-      rowValidation : function(field) {
-        
-        console.log("field:");
-        console.log(field);
-        console.log(typeof field);
-        console.log(field.innerHTML);
+  rowValidation : function(field) {
+    
+    if(globalDebug){
+      console.log("field:");
+      console.log(field);
+      console.log(typeof field);
+      console.log(field.innerHTML);
+      console.log(fieldsContent);
+      console.log(typeof fieldsContent[1]); //object
+      console.log(field.dataset.row);
+    };
+    
+    const validatingRow = [];
+    
 
-        console.log(fieldsContent);
-
-        //fieldsContent[1].dataset.row
-        //fieldsContent[1].dataset.column
-        //fieldsContent[1].dataset.box
-        // console.log(typeof fieldsContent[1].dataset.row); <- string
-        // validation will be false and highlight this filled slightly or no highlighting at all
-        if(field.innerHTML == fieldVal1){
-          return false;
-        }
-
-        let num = parseInt(field.innerHTML);
-        console.log(typeof num);
-        console.log(num);
-
-        return false;
+    for(let i = 0; i<fieldsContent.length; i++){
+      if(fieldsContent[i].dataset.row == field.dataset.row){
+        validatingRow.push(parseInt(fieldsContent[i].innerHTML));
       }
+    };
+    
+    if(globalDebug){
+      console.log(validatingRow);
+    };
+
+    const row = [];
+    for(let i =0; i<validatingRow.length; i++){
+      row
+    }
+
+    // validation will be false and highlight this filled slightly or no highlighting at all
+    if(field.innerHTML == fieldVal1){
+      return false;
+    };
+
+    //let num = parseInt(field.innerHTML);
+    
+
+    return false;
+  }
 
 };
 
